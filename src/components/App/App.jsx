@@ -13,8 +13,8 @@ function App() {
   return (
     <>
       <Bill bill={bill} onSetBill={handleSetBill} />
-      <Satisfaction />
-      <Satisfaction />
+      <Satisfaction>How did you like the service?</Satisfaction>
+      <Satisfaction>How did your friend like the service?</Satisfaction>
       <Output bill={bill} />
     </>
   );
