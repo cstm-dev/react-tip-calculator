@@ -37,7 +37,9 @@ function App() {
       <Satisfaction onSetTipById={handleSetTipById} id="2">
         How did your friend like the service?
       </Satisfaction>
-      <Output bill={bill} tip={tip} onResetCalc={handleResetCalc} />
+      {bill > 0 && (
+        <Output bill={bill} tip={tip} onResetCalc={handleResetCalc} />
+      )}
     </>
   );
 }
