@@ -1,18 +1,22 @@
 import PropTypes from "prop-types";
 
-function Satisfaction({ children, onSetTipById, id }) {
+function Satisfaction({ children, tip, onSetTipById, id }) {
   Satisfaction.propTypes = {
     children: PropTypes.string,
+    tip: PropTypes.array,
     onSetTipById: PropTypes.func,
     id: PropTypes.number,
   };
+
+  const tipById = tip.filter((e) => e.id === id).map((e) => e.tip);
 
   return (
     <div>
       <label htmlFor="tipPercentage">{children} </label>
       <select
         name="tipPercentage"
-        onChange={(e) => onSetTipById(Number(e.target.value), Number(id))}
+        value={tipById[0]}
+        onChange={(e) => onSetTipById(Number(e.target.value), id)}
       >
         <option value="0">Dissatisfied (0%)</option>
         <option value="5">It was okay (5%)</option>

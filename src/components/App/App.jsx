@@ -6,8 +6,8 @@ import { useState } from "react";
 function App() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState([
+    { id: 0, tip: 0 },
     { id: 1, tip: 0 },
-    { id: 2, tip: 0 },
   ]);
 
   function handleSetBill(currBill) {
@@ -23,20 +23,19 @@ function App() {
   function handleResetCalc() {
     setBill(0);
     setTip([
+      { id: 0, tip: 0 },
       { id: 1, tip: 0 },
-      { id: 2, tip: 0 },
     ]);
   }
 
   return (
     <>
       <Bill bill={bill} onSetBill={handleSetBill} />
-      <Satisfaction onSetTipById={handleSetTipById} id="1">
-        How did you like the service?
-      </Satisfaction>
-      <Satisfaction onSetTipById={handleSetTipById} id="2">
-        How did your friend like the service?
-      </Satisfaction>
+      {[...Array(2).keys()].map((e) => (
+        <Satisfaction key={e} tip={tip} onSetTipById={handleSetTipById} id={e}>
+          How did you like the service?
+        </Satisfaction>
+      ))}
       {bill > 0 && (
         <Output bill={bill} tip={tip} onResetCalc={handleResetCalc} />
       )}
