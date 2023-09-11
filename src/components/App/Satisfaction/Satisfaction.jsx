@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
-function Satisfaction({ children, onSetTip, id }) {
+function Satisfaction({ children, onSetTipById, id }) {
   Satisfaction.propTypes = {
     children: PropTypes.string,
-    onSetTip: PropTypes.func,
+    onSetTipById: PropTypes.func,
     id: PropTypes.number,
   };
 
@@ -12,7 +12,7 @@ function Satisfaction({ children, onSetTip, id }) {
       <label htmlFor="tipPercentage">{children} </label>
       <select
         name="tipPercentage"
-        onChange={(e) => onSetTip(Number(e.target.value), Number(id))}
+        onChange={(e) => onSetTipById(Number(e.target.value), Number(id))}
       >
         <option value="0">Dissatisfied (0%)</option>
         <option value="5">It was okay (5%)</option>

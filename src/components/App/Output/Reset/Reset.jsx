@@ -1,7 +1,13 @@
-function Reset() {
+import PropTypes from "prop-types";
+
+function Reset({ onResetCalc }) {
+  Reset.propTypes = {
+    onResetCalc: PropTypes.func,
+  };
+
   return (
     <div>
-      <button>Reset</button>
+      <button onClick={onResetCalc}>Reset</button>
     </div>
   );
 }
