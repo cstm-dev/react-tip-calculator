@@ -9,13 +9,14 @@ function Satisfaction({ children, tip, onSetTipById, id }) {
   };
 
   const tipById = tip.filter((e) => e.id === id).map((e) => e.tip);
+  const [num] = tipById;
 
   return (
     <div>
       <label htmlFor="tipPercentage">{children} </label>
       <select
         name="tipPercentage"
-        value={tipById[0]}
+        value={num}
         onChange={(e) => onSetTipById(Number(e.target.value), id)}
       >
         <option value="0">Dissatisfied (0%)</option>

@@ -10,10 +10,6 @@ function TipCalculator() {
     { id: 1, tip: 0 },
   ]);
 
-  function handleSetBill(currBill) {
-    setBill(currBill);
-  }
-
   function handleSetTipById(tip, id) {
     setTip((currTip) =>
       currTip.map((e) => (e.id === id ? { ...e, tip: tip } : e))
@@ -30,7 +26,7 @@ function TipCalculator() {
 
   return (
     <>
-      <Bill bill={bill} onSetBill={handleSetBill} />
+      <Bill bill={bill} onSetBill={setBill} />
       {[...Array(2).keys()].map((e) => (
         <Satisfaction key={e} tip={tip} onSetTipById={handleSetTipById} id={e}>
           How did you like the service?
