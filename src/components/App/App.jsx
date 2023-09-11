@@ -15,7 +15,7 @@ function App() {
       <Bill bill={bill} onSetBill={handleSetBill} />
       <Satisfaction />
       <Satisfaction />
-      <Output />
+      <Output bill={bill} />
     </>
   );
 }
