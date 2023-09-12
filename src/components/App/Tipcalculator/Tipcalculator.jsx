@@ -9,6 +9,10 @@ function TipCalculator() {
     { id: 0, tip: 0 },
     { id: 1, tip: 0 },
   ]);
+  const cstmMessage = [
+    "How did you like the service?",
+    "How did your friend like the service?",
+  ];
 
   function handleSetTipById(tip, id) {
     setTip((currTip) =>
@@ -29,7 +33,7 @@ function TipCalculator() {
       <Bill bill={bill} onSetBill={setBill} />
       {[...Array(2).keys()].map((e) => (
         <Satisfaction key={e} tip={tip} onSetTipById={handleSetTipById} id={e}>
-          How did you like the service?
+          {cstmMessage[e]}
         </Satisfaction>
       ))}
       {bill > 0 && (
